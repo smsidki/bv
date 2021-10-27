@@ -1,7 +1,6 @@
 package io.bv;
 
 import io.bv.model.Product;
-import org.apache.bval.jsr.ApacheValidationProvider;
 
 import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
@@ -15,11 +14,7 @@ import java.util.stream.Collectors;
 public class BVApp {
 
   public static void main(String[] args) {
-    Validator validator = Validation
-      .byProvider(ApacheValidationProvider.class)
-      .configure()
-      .buildValidatorFactory()
-      .getValidator();
+    Validator validator = Validation.buildDefaultValidatorFactory().getValidator();
 
     Product product = Product.builder()
       .brand("")
