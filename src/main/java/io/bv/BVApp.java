@@ -1,5 +1,6 @@
 package io.bv;
 
+import io.bv.model.Merchant;
 import io.bv.model.Product;
 import org.hibernate.validator.HibernateValidator;
 import org.hibernate.validator.messageinterpolation.ResourceBundleMessageInterpolator;
@@ -21,7 +22,7 @@ public class BVApp {
     Locale.setDefault(Locale.GERMANY);
   }
 
-  public static void main(String[] args) {
+  public static void main(String[] args) throws NoSuchMethodException {
     Validator validator = Validation
       .byProvider(HibernateValidator.class)
       .configure()
@@ -43,9 +44,26 @@ public class BVApp {
       .stream()
       .map(ConstraintViolation::getMessage)
       .collect(Collectors.toList());
-
     System.out.println(errors);
-    // [©inga is not alphanumeric]
+
+    final String merchantName = "©at";
+    errors = validator
+      .validate(new Merchant(merchantName, "cat", 100))
+      .stream()
+      .map(ConstraintViolation::getMessage)
+      .collect(Collectors.toList());
+    System.out.println(errors);
+
+    errors = validator
+      .forExecutables()
+      .validateConstructorReturnValue(
+        Merchant.class.getConstructor(String.class, String.class, int.class),
+        new Merchant(merchantName, "cat", 100)
+      )
+      .stream()
+      .map(ConstraintViolation::getMessage)
+      .collect(Collectors.toList());
+    System.out.println(errors);
   }
 
 }
