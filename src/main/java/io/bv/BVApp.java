@@ -2,6 +2,9 @@ package io.bv;
 
 import io.bv.model.Merchant;
 import io.bv.model.Product;
+import io.bv.validation.group.Create;
+import io.bv.validation.group.Read;
+import io.bv.validation.group.Update;
 import org.hibernate.validator.HibernateValidator;
 import org.hibernate.validator.messageinterpolation.ResourceBundleMessageInterpolator;
 import org.hibernate.validator.resourceloading.PlatformResourceBundleLocator;
@@ -36,11 +39,18 @@ public class BVApp {
       .brand("©inga")
       .type("PRISTINE")
       .color("yellow")
-      .expireDate(Date.from(Instant.now().plus(1, ChronoUnit.DAYS)))
+      .expireDate(Date.from(Instant.now().minus(1, ChronoUnit.DAYS)))
       .build();
 
     List<String> errors = validator
-      .validate(product)
+      .validate(product, Update.class)
+      .stream()
+      .map(ConstraintViolation::getMessage)
+      .collect(Collectors.toList());
+    System.out.println(errors);
+
+    errors = validator
+      .validate(product, Read.class)
       .stream()
       .map(ConstraintViolation::getMessage)
       .collect(Collectors.toList());
