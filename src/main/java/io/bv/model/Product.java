@@ -1,5 +1,6 @@
 package io.bv.model;
 
+import io.bv.validation.constraint.AlphaNumeric;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -17,6 +18,7 @@ import java.util.Date;
 public class Product {
 
   @NotBlank
+  @AlphaNumeric
   private String brand;
 
   @PositiveOrZero

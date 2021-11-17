@@ -32,8 +32,8 @@ public class BVApp {
       .getValidator();
 
     Product product = Product.builder()
-      .brand("")
-      .expireDate(Date.from(Instant.now().minus(1, ChronoUnit.DAYS)))
+      .brand("©inga")
+      .expireDate(Date.from(Instant.now().plus(1, ChronoUnit.DAYS)))
       .build();
 
     List<String> errors = validator
@@ -43,7 +43,7 @@ public class BVApp {
       .collect(Collectors.toList());
 
     System.out.println(errors);
-    // [product already expired: ${validatedValue}, must not be blank]
+    // [©inga is not alphanumeric]
   }
 
 }
