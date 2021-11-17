@@ -1,6 +1,7 @@
 package io.bv.model;
 
 import io.bv.validation.constraint.AlphaNumeric;
+import io.bv.validation.constraint.EqualToString;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -20,6 +21,15 @@ public class Product {
   @NotBlank
   @AlphaNumeric
   private String brand;
+
+  @EqualToString(
+    ignoreCase = false,
+    value = {"PRISTINE", "OFFICIAL", "OFFLINE"}
+  )
+  private String type;
+
+  @EqualToString({"red", "green", "blue", "black", "white"})
+  private String color;
 
   @PositiveOrZero
   private double rating;

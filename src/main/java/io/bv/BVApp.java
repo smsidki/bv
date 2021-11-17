@@ -33,6 +33,8 @@ public class BVApp {
 
     Product product = Product.builder()
       .brand("©inga")
+      .type("PRISTINE")
+      .color("yellow")
       .expireDate(Date.from(Instant.now().plus(1, ChronoUnit.DAYS)))
       .build();
 
