@@ -1,5 +1,6 @@
 package io.bv.model;
 
+import io.bv.validation.group.Create;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -13,7 +14,7 @@ import javax.validation.constraints.NotBlank;
 @AllArgsConstructor
 public class Item {
 
-  @NotBlank
+  @NotBlank(groups = Create.class)
   private String sku;
 
 }
