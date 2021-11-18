@@ -3,9 +3,13 @@ Content-Type: application/json
 Accept-Language: de
 
 {
+  "brand": "ISung",
   "name": "ISung 17",
-  "type": "ONLINE",
-  "color": "aqua"
+  "type": "OFFICIAL",
+  "color": "red",
+  "items": [
+    {"sku": ""}
+  ]
 }
 
 ###

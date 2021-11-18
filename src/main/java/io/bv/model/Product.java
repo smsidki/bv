@@ -11,8 +11,10 @@ import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.Future;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.PositiveOrZero;
 import java.util.Date;
+import java.util.List;
 
 @Data
 @Builder
@@ -43,5 +45,8 @@ public class Product {
     message = "product already expired: ${validatedValue}"
   )
   private Date expireDate;
+
+  @NotEmpty
+  private List<Item> items;
 
 }
