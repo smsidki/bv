@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Mono;
 
+import javax.validation.Valid;
+
 import static com.blibli.oss.backend.common.helper.ResponseHelper.status;
 import static org.springframework.http.HttpStatus.CREATED;
 
@@ -20,7 +22,7 @@ public class ProductController {
 
   @PostMapping
   @ResponseStatus(CREATED)
-  public Mono<Response<Void>> create(@RequestBody Product product) {
+  public Mono<Response<Void>> create(@RequestBody @Valid Product product) {
     log.info("Product {} created", product.getName());
     return Mono.just(status(CREATED));
   }
