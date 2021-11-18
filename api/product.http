@@ -31,3 +31,34 @@ Accept-Language: de
 }
 
 ###
+
+POST http://localhost:8080/api/products/_create_bulk?hl=id
+Content-Type: application/json
+Accept-Language: de
+
+[
+  {
+    "code": "is-17-1",
+    "brand": "ISung",
+    "name": "ISung 17",
+    "type": "OFFICIAL",
+    "color": "red",
+    "items": [
+      {"sku": ""}
+    ],
+    "expireDate": "2021-01-21"
+  },
+  {
+    "code": "is-17-2",
+    "brand": "ISung",
+    "name": "ISung 17",
+    "type": "OFFICIAL",
+    "color": "red",
+    "items": [
+      {"sku": "is-17-2-1"}
+    ],
+    "expireDate": "2022-01-22"
+  }
+]
+
+###

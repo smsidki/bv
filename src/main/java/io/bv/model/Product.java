@@ -3,7 +3,9 @@ package io.bv.model;
 import io.bv.validation.constraint.AlphaNumeric;
 import io.bv.validation.constraint.EqualToString;
 import io.bv.validation.group.Create;
+import io.bv.validation.group.Delete;
 import io.bv.validation.group.Read;
+import io.bv.validation.group.Update;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -22,6 +24,16 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Product {
+
+  @NotBlank(
+    groups = {
+      Create.class,
+      Read.class,
+      Update.class,
+      Delete.class
+    }
+  )
+  private String code;
 
   private String name;
 
