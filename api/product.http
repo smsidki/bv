@@ -1,4 +1,4 @@
-POST http://localhost:8080/api/products?hl=en
+POST http://localhost:8080/api/products?hl=id
 Content-Type: application/json
 Accept-Language: de
 
