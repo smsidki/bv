@@ -2,7 +2,9 @@ POST http://localhost:8080/api/products
 Content-Type: application/json
 
 {
-  "name": "ISung 17"
+  "name": "ISung 17",
+  "type": "ONLINE",
+  "color": "aqua"
 }
 
 ###
