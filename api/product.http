@@ -9,7 +9,25 @@ Accept-Language: de
   "color": "red",
   "items": [
     {"sku": ""}
-  ]
+  ],
+  "expireDate": "2021-01-21"
+}
+
+###
+
+PUT http://localhost:8080/api/products?hl=id
+Content-Type: application/json
+Accept-Language: de
+
+{
+  "brand": "ISung",
+  "name": "ISung 17",
+  "type": "OFFICIAL",
+  "color": "red",
+  "items": [
+    {"sku": ""}
+  ],
+  "expireDate": "2021-01-21"
 }
 
 ###
