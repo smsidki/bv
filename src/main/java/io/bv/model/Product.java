@@ -20,6 +20,8 @@ import java.util.Date;
 @AllArgsConstructor
 public class Product {
 
+  private String name;
+
   @NotBlank
   @AlphaNumeric
   private String brand;
