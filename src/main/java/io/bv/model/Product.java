@@ -38,7 +38,10 @@ public class Product {
   private String name;
 
   @NotBlank
-  @AlphaNumeric
+  @AlphaNumeric(
+    groups = Create.class,
+    name = "model-product-name"
+  )
   private String brand;
 
   @EqualToString(

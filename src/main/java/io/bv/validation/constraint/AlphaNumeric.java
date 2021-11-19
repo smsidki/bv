@@ -21,6 +21,8 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Constraint(validatedBy = {AlphaNumericValidator.class, MerchantAlphaNumericValidator.class})
 public @interface AlphaNumeric {
 
+  String name() default "io-bv-validation-constraint-AlphaNumeric-name";
+
   String message() default "{io.bv.validation.constraint.AlphaNumeric.message}";
 
   Class<?>[] groups() default {};
